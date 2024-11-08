@@ -25,7 +25,7 @@ public class JetsApplication {
 	}
 	
 	private void displayUserMenu() {
-		//no returns, just sysout
+		
 	}
 
 }
