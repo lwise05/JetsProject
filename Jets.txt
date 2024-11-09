@@ -1,5 +1,5 @@
-Cargo Jet, C-130, 417, 2361, 12000000.0
-Cargo Jet, C-5 , 500, 4000, 10000000.0
-Fighter Jet, F-16, 700, 6000, 15000000.0
+Cargo Jet, C-130, 417, 5000, 12000000.0
+Cargo Jet, C-5 , 800, 10000, 10000000.0
+Fighter Jet, F-16, 900, 6000, 15000000.0
 Fighter Jet, F-22, 750, 7000, 18000000.0  
-Passenger Jet, Airbus A320, 500, 2000, 16000000.0
+Passenger Jet, Airbus A320, 10000, 2000, 16000000.0

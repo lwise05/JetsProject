@@ -2,6 +2,8 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.Jet;
+
 public class JetsApplication {
 
 	private AirField airField = new AirField();
@@ -35,9 +37,12 @@ public class JetsApplication {
 			break;
 			
 		case 3:
+			Jet fastestJet = airField.fastestJet();
+			System.out.println(fastestJet);
 			break;
 			
 		case 4:
+			airField.longestRange();
 			break;
 			
 		case 5:

@@ -76,9 +76,33 @@ public class AirField {
 		jet.fly();
 		}
 	}
-
-
+	
+	public Jet fastestJet() {
+//		int maxSpeed = fleet.get(0).getSpeed();
+		Jet fastest = fleet.get(0);
+		for (int i = 0 ; i < fleet.size() ; i++) {
+			if (fastest.getSpeed() < fleet.get(i).getSpeed()) {
+				fastest = fleet.get(i);
+			}
+		}
+		return fastest;
 	}
+	
+	
+	public Jet longestRange() {
+		Jet longestRange = fleet.get(0);
+		for (int i = 0 ; i < fleet.size() ; i++) {
+			if (longestRange.getRange() < fleet.get(i).getRange()) {
+				longestRange = fleet.get(i);
+			}
+		}
+		return longestRange;
+	}
+	
+	
+
+}
+	
 		
 	
 	//TODO public methods for handling jets
