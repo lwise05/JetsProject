@@ -50,12 +50,14 @@ public abstract class Jet {
 	}
 	
 	public void fly() {
+		//override in all subclasses
 		System.out.println(this.model + " is flying! WEEEE!");
 	}
 	
 	
 	public double getSpeedInMach() {
 		// look up how to convert mph to mach
+		//no need to override 
 		return 0.0;
 	}
 	
