@@ -14,12 +14,13 @@ import com.skilldistillery.jets.entities.PassengerJet;
 public class AirField {
 
 	private List<Jet> fleet = new ArrayList<>();
+		
 	// no other fields
 	
 	public AirField() {
 		loadJetsFromFile("Jets.txt");
+		
 	}
-	
 	
 	
 	private void loadJetsFromFile(String fileName) {
@@ -54,10 +55,7 @@ public class AirField {
 					
 				default:
 					break;
-				
 				}
-				
-			    
 			  }
 			}
 			catch (IOException e) {
@@ -66,5 +64,23 @@ public class AirField {
 	
 		}
 	
-	//TODO public methods for handing jets
-}
+	public void listJets() {
+// print out jet vs fleet. fleet would print out the entire list rather than the individual jet
+		for (Jet jet : fleet) { 
+			System.out.println(jet); 
+		 }
+	}
+	
+	public void flyJets() {
+		for (Jet jet : fleet) {
+		jet.fly();
+		}
+	}
+
+
+	}
+		
+	
+	//TODO public methods for handling jets
+
+

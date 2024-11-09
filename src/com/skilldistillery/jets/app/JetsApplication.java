@@ -5,19 +5,21 @@ import java.util.Scanner;
 public class JetsApplication {
 
 	private AirField airField = new AirField();
-	private static Scanner sc;
+
+	Scanner sc; // initialized but not longer marked static
 	// no more fields. No list of jets.
 
 	public static void main(String[] args) {
 		JetsApplication app = new JetsApplication();
-		sc = new Scanner(System.in);
+		app.sc = new Scanner(System.in);
 
 		app.launch();
 		app.sc.close();
 	}
 
 	private void launch() {
-		int menuChoice = sc.nextInt();
+		System.out.println("Please choose 1-9 from the menu: ");
+		int menuChoice;
 		
 		do {
 		displayUserMenu();
@@ -25,9 +27,11 @@ public class JetsApplication {
 		
 		switch(menuChoice) {
 		case 1:
+			airField.listJets();
 			break;
 			
 		case 2:
+			airField.flyJets();
 			break;
 			
 		case 3:
@@ -53,13 +57,12 @@ public class JetsApplication {
 			
 		default:
 				System.out.println("Oops! You entered an invalid option. Choose from 1-9 from the Menu.");
-			
-		
-		//act on choice
-		} while (menuChoice < 9);
+		}	
+		}while (menuChoice < 9);
 		
 		}
 	
+
 
 	private void displayUserMenu() {
 

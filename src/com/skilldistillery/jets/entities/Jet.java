@@ -44,21 +44,27 @@ public abstract class Jet {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	@Override
+//	This prints out the to string but doesn't specify the class names (cargo, fighter, passenger)
+
 	public String toString() {
-		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
+		return "Jet [model=" + model + ", speed=" + speed + " MPH " + ", range=" + range + ", price= $" + price + "]";
 	}
+	
 	
 	public void fly() {
 		//override in all subclasses
-		System.out.println(this.model + " is flying! WEEEE!");
+		double fuelRange = range / speed;
+		System.out.println("Model " + model + " is flying! This aircraft is priced at $" + price + " and can go up to " + speed + "MPH (mach " + getSpeedInMach() + "). It can fly for " + range
+			+ " miles, which is close to " + fuelRange + " hours before needing to refuel.");	
 	}
+	
 	
 	
 	public double getSpeedInMach() {
 		// look up how to convert mph to mach
+		double mach = speed / 767.269;
 		//no need to override 
-		return 0.0;
+		return mach;
 	}
 	
 }

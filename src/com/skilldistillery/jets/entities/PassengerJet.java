@@ -11,5 +11,17 @@ public class PassengerJet extends Jet {
 		super(model, speed, range, price);
 		// TODO Auto-generated constructor stub
 	}
+//	@Override
+//	public void fly() {
+////		double fuelRange = getRange() / this.getSpeed();
+////		System.out.println("Model " + getModel() + ", Speed()=" + getSpeed() + "MPH, Range()=" + getRange()
+////			+ ", Price()= $" + getPrice() + ". It can fly for " + fuelRange + " before needing to refuel.");	
+//	}
+//	
+//	@Override
+//	public String toString() {
+//		return "Passenger Jet [Model()=" + getModel() + ", Speed()=" + getSpeed() + "MPH, Range()=" + getRange()
+//				+ ", Price()= $" + getPrice() ;
+//	}
 
 }
