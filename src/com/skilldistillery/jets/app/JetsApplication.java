@@ -2,13 +2,14 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.CargoJet;
 import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
 
 	private AirField airField = new AirField();
 
-	Scanner sc; // initialized but not longer marked static
+	Scanner sc; // initialized but no longer marked static
 	// no more fields. No list of jets.
 
 	public static void main(String[] args) {
@@ -20,10 +21,12 @@ public class JetsApplication {
 	}
 
 	private void launch() {
-		System.out.println("Please choose 1-9 from the menu: ");
+		boolean loop = true;
 		int menuChoice;
 		
+		
 		do {
+		System.out.println("Please choose 1-9 from the menu: ");
 		displayUserMenu();
 		menuChoice = sc.nextInt();
 		
@@ -42,34 +45,41 @@ public class JetsApplication {
 			break;
 			
 		case 4:
-			airField.longestRange();
+			Jet longestRange = airField.longestRange();
+			System.out.println(longestRange);
 			break;
 			
 		case 5:
+			//load cargo
 			break;
 			
 		case 6:
+			//fight
 			break;
 			
 		case 7:
+			addNewJet();
 			break;
 			
 		case 8:
+			
 			break;
 			
 		case 9:
+			System.out.println("You are now exiting the program. Good-bye!");
+			loop = false;
 			break;
 			
 		default:
 				System.out.println("Oops! You entered an invalid option. Choose from 1-9 from the Menu.");
 		}	
-		}while (menuChoice < 9);
+		}while (loop);
 		
 		}
 	
 
 
-	private void displayUserMenu() {
+	public void displayUserMenu() {
 
 		System.out.println();
 		System.out.println("1. List fleet");
@@ -83,6 +93,31 @@ public class JetsApplication {
 		System.out.println("9. Quit");
 		System.out.println();
 
+	}
+	
+	public void addNewJet() {
+		
+		String model;
+		int speed;
+		int range;
+		double price;
+		
+		System.out.println("Let's add a jet to the fleet.");
+		
+		System.out.println("Enter the model type: ");
+		model = sc.next();
+		
+		System.out.println("Enter how fast your jet will go: ");
+		speed = sc.nextInt();
+		
+		System.out.println("Enter how far your jet will be travel: ");
+		range = sc.nextInt();
+	
+		System.out.println("Enter in the price of your jet: ");
+		price = sc.nextDouble();
+	
+		airField.addJet(model, speed, range, price);
+		
 	}
 
 	// add jet to fleet goes in this class but must continue

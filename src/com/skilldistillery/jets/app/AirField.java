@@ -99,9 +99,27 @@ public class AirField {
 		return longestRange;
 	}
 	
+	public void cargo () {
+		//how to connect loadCargo method
+	}
 	
+	public void fight () {
+		//how to connect fight method
+	}
+	
+	
+	public void addJet(String model, int speed, int range, double price) {
+		Jet newJet = new PassengerJet (model, speed, range, price);
+		fleet.add(newJet);
+		
+	}
+	
+	public void removeJet () {
+		
+	}
+	
+	}
 
-}
 	
 		
 	

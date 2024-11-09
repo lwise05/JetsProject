@@ -1,6 +1,8 @@
 package com.skilldistillery.jets.entities;
 
-public class FighterJet extends Jet {
+import com.skilldistillery.jets.app.CombatReady;
+
+public class FighterJet extends Jet implements CombatReady {
 
 	public FighterJet () {
 		super();
@@ -11,19 +13,10 @@ public class FighterJet extends Jet {
 		
 	}
 
-//	@Override
-//	public void fly() {
-////		double fuelRange = getRange() / this.getSpeed();
-////		System.out.println("Model " + getModel() + ", Speed()=" + getSpeed() + "MPH, Range()=" + getRange()
-////			+ ", Price()= $" + getPrice() + ". It can fly for " + fuelRange + " before needing to refuel.");	
-//	}
-//	
-//	@Override
-//	public String toString() {
-//		return "Fighter Jet [Model()=" + getModel() + ", Speed()=" + getSpeed() + "MPH, Range()=" + getRange()
-//				+ ", Price()= $" + getPrice() ;
-//	}
-
+	@Override
+	public void fight() {
+		System.out.println("Fighter jets are fighting!");
+	}
 	
 	
 	
