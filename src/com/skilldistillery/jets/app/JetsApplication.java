@@ -21,12 +21,11 @@ public class JetsApplication {
 	}
 
 	private void launch() {
-		boolean loop = true;
+		boolean keepgoing = true;
 		int menuChoice;
 		
-		
 		do {
-		System.out.println("Please choose 1-9 from the menu: ");
+		System.out.println();
 		displayUserMenu();
 		menuChoice = sc.nextInt();
 		
@@ -50,11 +49,11 @@ public class JetsApplication {
 			break;
 			
 		case 5:
-			//load cargo
+			airField.cargo();
 			break;
 			
 		case 6:
-			//fight
+			airField.fight();
 			break;
 			
 		case 7:
@@ -62,18 +61,23 @@ public class JetsApplication {
 			break;
 			
 		case 8:
+			airField.listJets();
+			System.out.println("Please choose the number of jet you'd like removed");
+			
+			int jetChoice = sc.nextInt();
+			airField.removeJet(jetChoice);
 			
 			break;
 			
 		case 9:
 			System.out.println("You are now exiting the program. Good-bye!");
-			loop = false;
+			keepgoing = false;
 			break;
 			
 		default:
 				System.out.println("Oops! You entered an invalid option. Choose from 1-9 from the Menu.");
 		}	
-		}while (loop);
+		}while (keepgoing);
 		
 		}
 	
@@ -81,17 +85,22 @@ public class JetsApplication {
 
 	public void displayUserMenu() {
 
-		System.out.println();
-		System.out.println("1. List fleet");
-		System.out.println("2. Fly all jets");
-		System.out.println("3. View fastest jet");
-		System.out.println("4. View jet with longest range");
-		System.out.println("5. Load all Cargo Jets");
-		System.out.println("6. Dogfight!");
-		System.out.println("7. Add a jet to Fleet");
-		System.out.println("8. Remove a jet from Fleet");
-		System.out.println("9. Quit");
-		System.out.println();
+		System.out.println("*************************************");
+		System.out.println("*              MENU                 *");
+		System.out.println("*   Please choose from options 1-9  *");
+		System.out.println("*                                   *");
+		System.out.println("* 1. List fleet                     *");
+		System.out.println("* 2. Fly all jets                   *");
+		System.out.println("* 3. View fastest jet               *");
+		System.out.println("* 4. View jet with longest range    *");
+		System.out.println("* 5. Load all Cargo Jets            *");
+		System.out.println("* 6. Dogfight!                      *");
+		System.out.println("* 7. Add a jet to Fleet             *");
+		System.out.println("* 8. Remove a jet from Fleet        *");
+		System.out.println("* 9. Quit                           *");
+		System.out.println("*                                   *");
+		System.out.println("*************************************");
+		
 
 	}
 	
@@ -114,7 +123,7 @@ public class JetsApplication {
 		range = sc.nextInt();
 	
 		System.out.println("Enter in the price of your jet: ");
-		price = sc.nextDouble();
+		price = sc.nextInt();
 	
 		airField.addJet(model, speed, range, price);
 		

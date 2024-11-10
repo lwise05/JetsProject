@@ -14,115 +14,121 @@ import com.skilldistillery.jets.entities.PassengerJet;
 public class AirField {
 
 	private List<Jet> fleet = new ArrayList<>();
-		
+
 	// no other fields
-	
+
 	public AirField() {
 		loadJetsFromFile("Jets.txt");
-		
+
 	}
-	
-	
+
 	private void loadJetsFromFile(String fileName) {
-		
-		  try ( BufferedReader bufIn = new BufferedReader(new FileReader(fileName)) ) {
-			  String line;
-			  while ((line = bufIn.readLine()) != null) {
-				  //convert line to array
-				String [] jetFields = line.split(", ");
-				String jetType = jetFields [0];
-				String model = jetFields [1];
-				int speed = Integer.parseInt(jetFields [2]);
-				int range = Integer.parseInt(jetFields [3]);
-				double price = Double.parseDouble(jetFields [4]);
-				
-				//construct object
+
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+				// convert line to array
+				String[] jetFields = line.split(", ");
+				String jetType = jetFields[0];
+				String model = jetFields[1];
+				int speed = Integer.parseInt(jetFields[2]);
+				int range = Integer.parseInt(jetFields[3]);
+				double price = Double.parseDouble(jetFields[4]);
+
+				// construct object
 				switch (jetType) {
-				case "Cargo Jet" :
-					Jet cargoJet = new CargoJet (model, speed, range, price);
+				case "Cargo Jet":
+					Jet cargoJet = new CargoJet(model, speed, range, price);
 					fleet.add(cargoJet);
 					break;
-					
+
 				case "Fighter Jet":
-					Jet FighterJet = new FighterJet (model, speed, range, price);
+					Jet FighterJet = new FighterJet(model, speed, range, price);
 					fleet.add(FighterJet);
 					break;
-					
+
 				case "Passenger Jet":
-					Jet PassengerJet = new PassengerJet (model, speed, range, price);
+					Jet PassengerJet = new PassengerJet(model, speed, range, price);
 					fleet.add(PassengerJet);
 					break;
-					
+
 				default:
 					break;
 				}
-			  }
 			}
-			catch (IOException e) {
-			  System.err.println(e);
-			}
-	
+		} catch (IOException e) {
+			System.err.println(e);
 		}
-	
+
+	}
+
 	public void listJets() {
 // print out jet vs fleet. fleet would print out the entire list rather than the individual jet
-		for (Jet jet : fleet) { 
-			System.out.println(jet); 
-		 }
-	}
-	
-	public void flyJets() {
-		for (Jet jet : fleet) {
-		jet.fly();
+//		for (Jet jet : fleet) {
+//			System.out.println(jet);
+			int count = 0;	
+		for (int i = 0 ; i < fleet.size() ; i++) {
+			count++;
+			System.out.println();
+			System.out.println(count + ": " + fleet.get(i) );
+			
 		}
 	}
-	
+
+	public void flyJets() {
+		for (Jet jet : fleet) {
+			jet.fly();
+		}
+	}
+
 	public Jet fastestJet() {
 //		int maxSpeed = fleet.get(0).getSpeed();
 		Jet fastest = fleet.get(0);
-		for (int i = 0 ; i < fleet.size() ; i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			if (fastest.getSpeed() < fleet.get(i).getSpeed()) {
 				fastest = fleet.get(i);
 			}
 		}
 		return fastest;
 	}
-	
-	
+
 	public Jet longestRange() {
 		Jet longestRange = fleet.get(0);
-		for (int i = 0 ; i < fleet.size() ; i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			if (longestRange.getRange() < fleet.get(i).getRange()) {
 				longestRange = fleet.get(i);
 			}
 		}
 		return longestRange;
 	}
-	
-	public void cargo () {
-		//how to connect loadCargo method
+
+	public void cargo() {
+	 for (Jet jet : fleet ) {
+		 if (jet instanceof CargoJet) {
+			 ((CargoJet) jet).loadCargo();
+		 }
+	 }
+		
 	}
-	
-	public void fight () {
-		//how to connect fight method
+
+	public void fight() {
+		 for (Jet jet : fleet ) {
+			 if (jet instanceof FighterJet) {
+				 ((FighterJet) jet).fight();
+			 }
+		 }
 	}
-	
-	
+
 	public void addJet(String model, int speed, int range, double price) {
-		Jet newJet = new PassengerJet (model, speed, range, price);
+		Jet newJet = new PassengerJet(model, speed, range, price);
 		fleet.add(newJet);
-		
-	}
-	
-	public void removeJet () {
-		
-	}
-	
+
 	}
 
-	
-		
-	
-	//TODO public methods for handling jets
+	public void removeJet(int index) {
+			fleet.remove((index) -1);
+		}
+	}
 
 
+// TODO public methods for handling jets
