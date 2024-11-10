@@ -87,8 +87,8 @@ public class AirField {
 		for (int i = 0; i < fleet.size(); i++) {
 			if (fastest.getSpeed() < fleet.get(i).getSpeed()) {
 				fastest = fleet.get(i);
-			}
-		}
+			} 
+		} 
 		return fastest;
 	}
 
@@ -122,11 +122,14 @@ public class AirField {
 	public void addJet(String model, int speed, int range, double price) {
 		Jet newJet = new PassengerJet(model, speed, range, price);
 		fleet.add(newJet);
+		System.out.println("You finished creating a new jet!");
 
 	}
 
 	public void removeJet(int index) {
-			fleet.remove((index) -1);
+		fleet.remove((index) -1);
+		System.out.println("You removed jet # " + index);
+		
 		}
 	}
 
