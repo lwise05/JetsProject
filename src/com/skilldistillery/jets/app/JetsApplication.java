@@ -105,8 +105,8 @@ public class JetsApplication {
 		int range = 0;
 		double price = 0.0;
 
-		System.out.println("Let's add a jet to the fleet.");
-
+		System.out.println("Let's add a passenger jet to the fleet.");
+		System.out.println();
 		System.out.println("Enter the model type: ");
 		model = sc.next();
 
@@ -149,14 +149,14 @@ public class JetsApplication {
 		airField.addJet(model, speed, range, price);
 
 	}
-	
-	public void remove () {
+
+	public void remove() {
 		airField.listJets();
 		System.out.println();
 		System.out.println("Please choose the number of jet you'd like removed");
 		int jetChoice = sc.nextInt();
 		airField.removeJet(jetChoice);
-		
+
 	}
 
 	// add jet to fleet goes in this class but must continue

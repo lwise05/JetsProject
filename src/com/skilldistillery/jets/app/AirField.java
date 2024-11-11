@@ -82,7 +82,7 @@ public class AirField {
 	}
 
 	public Jet fastestJet() {
-//		int maxSpeed = fleet.get(0).getSpeed();
+		System.out.println("The fastest jet is : ");
 		Jet fastest = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			if (fastest.getSpeed() < fleet.get(i).getSpeed()) {
@@ -93,6 +93,7 @@ public class AirField {
 	}
 
 	public Jet longestRange() {
+		System.out.println("The jet with the longest range is : ");
 		Jet longestRange = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			if (longestRange.getRange() < fleet.get(i).getRange()) {
@@ -122,12 +123,14 @@ public class AirField {
 	public void addJet(String model, int speed, int range, double price) {
 		Jet newJet = new PassengerJet(model, speed, range, price);
 		fleet.add(newJet);
+		System.out.println();
 		System.out.println("You finished creating a new jet!");
 
 	}
 
 	public void removeJet(int index) {
 		fleet.remove((index) -1);
+		System.out.println();
 		System.out.println("You removed jet # " + index);
 		
 		}

@@ -13,6 +13,14 @@ public class PassengerJet extends Jet {
 				+ "\n Price: $" + getPrice();
 	}
 
-	
+	@Override
+	public void fly() {
+		double fuelRange = getRange() / getSpeed();
+		System.out.println(
+				"The Passenger Jet, Model " + getModel() + " is flying! \nThis aircraft is priced at $" + getPrice()
+						+ ".\nIt can go up to " + getSpeed() + "MPH (mach " + getSpeedInMach() + "). \nIt can fly for "
+						+ getRange() + " miles, which is close to " + fuelRange + " hours before needing to refuel.");
+		System.out.println();
+	}
 
-}
+} 

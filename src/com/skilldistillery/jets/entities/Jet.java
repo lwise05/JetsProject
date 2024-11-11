@@ -61,9 +61,7 @@ public abstract class Jet {
 	
 	
 	public double getSpeedInMach() {
-		// look up how to convert mph to mach
-		double mach = speed / 767.269;
-		//no need to override 
+		double mach = speed / 767.269; 
 		return mach;
 	}
 	
