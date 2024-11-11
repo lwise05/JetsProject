@@ -49,7 +49,7 @@ public abstract class Jet {
 	public String toString() {
 		return "Jet [model=" + model + ", speed=" + speed + " MPH " + ", range=" + range + ", price= $" + price + "]";
 	}
-	
+	 
 	
 	public void fly() {
 		//override in all subclasses

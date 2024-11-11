@@ -4,7 +4,7 @@ import com.skilldistillery.jets.app.CargoCarrier;
 
 public class CargoJet extends Jet implements CargoCarrier {
 	
-	
+	 
 
 	public CargoJet() {
 		super();
